@@ -1,57 +1,27 @@
 {
   
     "name": "trainy-2",
-  
     "version": "1.0.0",
-  
     "description": "Node.js basics",
-  
     "source": "src/index.html",
-  
     "scripts": {
-  
-      
-    "start": "parcel",
-  
-      
-    "build": "parcel build"
-  
+        "dev": "parcel src/*.html",
+        "build": "parcel build src/*.html --public-url /goit-trainy-2/"
     },
-  
     "repository": {
-  
-      
     "type": "git",
-  
-      
     "url": "git+https://github.com/dmitriy-057/trainy-2.git"
-  
     },
-  
     "author": "Dmitriy Goncharov <my.webpage057@gmail.com>",
-  
     "license": "ISC",
-  
     "bugs": {
-  
-      
     "url": "https://github.com/dmitriy-057/trainy-2/issues"
-  
     },
-  
     "homepage": "https://github.com/dmitriy-057/trainy-2#readme",
-  
     "devDependencies": {
-  
-      
     "parcel": "^2.8.3"
-  
     },
-  
     "dependencies": {
-  
-      
     "lodash.throttle": "^4.1.1"
-  
     }
 }
