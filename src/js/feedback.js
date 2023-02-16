@@ -25,7 +25,7 @@ function onFormSubmit(e) {
 
 function onTextAreaInput(evt) {
     // получаем значение поля 
-    // сохраняем его в локальное хр-ще
+    // сохраняем его в локальное хр-ще. Так как  message это строка JSON.stringify не нужен
     // можем добавить throttle
     const message = evt.target.value;
     localStorage.setItem(STORAGE_KEY, message);
@@ -46,13 +46,10 @@ refs.form.addEventListener('input',(e)=> {
     formData[e.target.name] = e.target.value;
     console.log('formData', formData);
 
-    localStorage.setItem('otziv',JSON.stringify(formData));
+    localStorage.setItem('feedback',JSON.stringify(formData));
 
     const savedData = localStorage.getItem(formData);
     const parsedData = JSON.parse(savedData);
     console.log('parsed data', parsedData);
-
-
-
 
 });
