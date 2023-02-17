@@ -29,4 +29,16 @@
     padding: 18px;
     font-weight: 700;
    }
-  
+/* modul 9 setTimeout setInterval */
+  .alert {
+   display: none;
+  }
+
+  .is-visible {
+   display: inline-block;
+   width: 100px;
+   background-color: green;
+   color: #fff;
+   padding: 10px;
+   text-align: center;
+  }
