@@ -1,35 +1,45 @@
 import BSN from 'bootstrap.native';
 
-const PROMPT_DELAY = 3000;
-const MAX_PROMPT_ATTEMPS = 3;
-
 const refs = {
-    modal: document.querySelector('.modal')
+    modal: document.querySelector('.modal'),
+    subscribeBtn: document.querySelector('button[data-bs-subscribe]'),
 };
+
+const PROMPT_DELAY = 1000;
+const MAX_PROMPT_ATTEMPS = 3;
+let promptCounter = 0;
+let hasSubscribed = false;
 
 const modal = new BSN.Modal('.modal');
 console.log(modal);
 
-refs.modal.addEventListener('hide.bs.modal', ()=> {
-    console.log('qwdqwqwdewefwe');
+openModal();
 
-    setTimeout(()=> {
+refs.modal.addEventListener('hide.bs.modal', openModal);
+
+refs.subscribeBtn.addEventListener('click', onSubscribeBtnClick);
+
+function openModal() {
+
+    if(promptCounter === MAX_PROMPT_ATTEMPS || hasSubscribed) {
+        console.log("максимальное кол-во открытий или подписался");
+        return;
+    };
+
+   setTimeout(()=> {
         console.log("Открывает модалку");
         modal.show();
-    
+        promptCounter += 1;
     }, PROMPT_DELAY);
-})
 
+}
 
-setTimeout(()=> {
-    console.log("Открывает модалку");
-    modal.show();
+function onSubscribeBtnClick() {
+    hasSubscribed = true;
+    modal.hide();
+}
 
-}, PROMPT_DELAY);
-
-
-// let promptCounter = 0;
-// let hasSubscribed = true;
+// 
 
 // const intervalId = setInterval(() => {
 
