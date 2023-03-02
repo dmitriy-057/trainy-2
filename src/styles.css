@@ -64,3 +64,22 @@
    font-size: 35;
    color: black; 
   }
+
+  /* Modul 9 Promise */
+
+  .js-progress {
+   color: red;
+   font-size: 16px;
+   font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+
+  .js-winner {
+   color: yellowgreen;
+   font-size: 16px;
+   font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+
+.js-results-table{
+color: black;
+border: 1px solid red;
+}
