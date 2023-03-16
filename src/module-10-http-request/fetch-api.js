@@ -1,34 +1,60 @@
+// import fetchPokemon from '../module-10-http-request/api.service' 
+
+// import API from "./api.service";
+
+const BASE_URL = 'https://pokeapi.co/api/v2';
+
+
 const refs = {
     cardContainer: document.querySelector(".card-container"),
     searchForm: document.querySelector('.js-search-form'),
+    input: document.querySelector('.form-control'),
 
 };
 
-refs.searchForm.addEventListener('submit', ((e) => {
+refs.searchForm.addEventListener("submit", onSearch);
+refs.input.addEventListener("input", onInput);
+
+function onInput(e) {
+    pokemonId = e.currentTarget.value;
+    console.log('pokemonId', pokemonId)
+}
+
+function onSearch(e) {
     e.preventDefault();
-    console.log('sdfvfvbb')
+
+    // const form = e.currentTarget;
+    // const searchQuery = form.elements.query.value;
+    // console.log('searchQuery', searchQuery);
+    
+    //fetchPokemon(searchQuery)
+    fetchPokemon(pokemonId)
+    .then(pokemon => {
+        console.log('this is THEN'),
+        renderPokemonCard(pokemon)
     })
-);
-
-// function onSearch(e) {
-//     e.preventDefault();
-//     console.log('submit event')
-
-// }
-
-fetchPokemon(5)
-.then(pokemon => renderPokemonCard(pokemon))
-.catch(error => console.log(error))
-
+    .catch(error => {
+        console.log('this is CATCH!!!')
+        onFetchError(error)
+    })
+    .finally(()=> {
+        refs.searchForm.reset()
+    })
+}
 
 function fetchPokemon(pokemonId) {
-// возвращает промис
-return fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`)
-.then(response => {
-// распарсивает данные которые приходят с бэкэнда
-    return response.json()
-})
+    // возвращает промис
+    return fetch(`${BASE_URL}/pokemon/${pokemonId}`)
+    .then(response => {
+    // распарсивает данные которые приходят с бэкэнда
+        console.log('response', response)
+        return response.json()
+    })
 };
+
+function onFetchError(error) {
+    alert('Oops smth went wrong and we couldn`t have found your pokemon');
+}
 
 function renderPokemonCard(pokemon) {
     console.log('pokemon',pokemon);
