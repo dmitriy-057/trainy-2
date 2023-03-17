@@ -73,3 +73,8 @@ function renderPokemonCard(pokemon) {
     refs.cardContainer.innerHTML = markup;
   
 }
+
+
+fetch('https://pixabay.com/api/?key=29210870-5c756012ce316252fd55732c8&q=nature&image_type=photo&orientation=horizontal')
+.then(r => r.json())
+.then(console.log)
