@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles.css ">
+</head>
+<body>
+    <a href="../index.html">Назад</a>
+    <form class="search-form-pagination">
+        <div>
+            <label for="searchQuery"></label>
+            <input 
+            type="text"
+            class="form-input"
+            name="query"
+            id="searchQuery"
+            placeholder="Что ищем?"
+            autocomplete="off"
+            >
+        </div>
+        <button 
+        type="submit" class="btn-primary">Искать</button>
+    </form>
+
+    <ul class="pg-articles"></ul>
+
+    <button
+    type="button"
+    class="btn-primary"
+    data-action="load-more"
+    >
+        <span
+        class="spinner is-hidden"
+        aria-hidden="true"
+        ></span>
+        <span class="label">
+        Показать еще
+        </span>
+
+</button>
+
+    <script src="./02-pagination.js"></script>
+</body>
+</html>
